@@ -1,0 +1,71 @@
+@if(loading){
+    <h1>loading...</h1>
+}@else{
+        <!-- ##### Breadcumb Area Start ##### -->
+        <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style="background-image: url(assets/img/bg-img/hotel2.jpg);">
+            <div class="bradcumbContent">
+                <!-- <h2>Rooms</h2> -->
+            </div>
+        </section>
+        <!-- ##### Breadcumb Area End ##### -->
+    
+    
+    
+        <!-- ##### Rooms Area Start ##### -->
+        <section class="rooms-area section-padding-0-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-6">
+                        <div class="section-heading text-center">
+                            <div class="line-"></div>
+                            <h2 style="color: #107980;">Choose a Room</h2>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation"  >
+                        <button class="nav-link " (click)="GetAll()" style="color: #107980 ; font-size: 20px; font-weight: bold;background-color: #D9C5BC;" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">All Rooms</button>
+                        </li>
+                        @for(option of Branches ;track option._id ){
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link"  id="profile-tab" (click)="GetFiltered(option._id)" style="color: #107980; font-weight: bold; font-size: 20px;background-color: #D9C5BC;" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">{{option.name}} </button>
+                            </li> 
+                    }
+                    </ul>
+                    </div>
+                <div class="row">
+                    <!-- Single Rooms Area -->
+                    @for(room  of filteredArray; track room._id){
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="single-rooms-area wow fadeInUp" data-wow-delay="100ms">
+                                <!-- Thumbnail -->
+                                <!-- <div class="bg-thumbnail bg-img" style="background-image: url(assets/Images/bg-img/1.jpg);"></div> -->
+                                <div class="bg-thumbnail bg-img" style="background-image: url({{room.image}});"></div>
+                                <!-- Price -->
+                                <p class="price-from" >$ {{room.basePrice}} per night</p>
+                                <!-- Rooms Text -->
+                                <div  class="rooms-text">
+                                    <div class="line"></div>
+                                    <h4><strong>{{room.type}}</strong></h4>
+                                    <p>{{room.description}}</p>
+                                    @for(option of Branches; track option._id){
+                                        @if(option._id==room.branchId){
+                                            <h5  style="color: #000;" onmouseover="this.style.color='#D9C5BC'" onmouseout="this.style.color='#1d2d2d'" > <strong> Branch : {{option.name}}</strong></h5>
+                                        }
+                                    }
+                                </div>
+                                <!-- Book Room -->
+                                <a style="background-color: #107980 ;border-radius: 5px;" routerLink='/rooms/{{room._id}}'  class="book-room-btn btn palatin-btn text-light">More Details</a>
+                            </div>
+                        </div>
+                    }
+                  
+    
+    
+                </div>
+            </div>
+        </section>
+    <!-- ##### Rooms Area End ##### -->
+    
+}

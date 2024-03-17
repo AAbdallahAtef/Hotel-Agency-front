@@ -1,0 +1,37 @@
+@if(loading){
+    <h1>loading...</h1>
+}@else{
+    <section class="breadcumb-area bg-img d-flex align-items-center justify-content-center" style="background-image: url(assets/img/bg-img/test1.jpg);">
+    </section>
+    
+    
+    <section class="ftco-section ftco-menu " style="background-color: #EDE1CF;" >
+        <div class="container">
+            <div class="row justify-content-center mb-5  pb-3">
+                <div class="col-md-7 mt-5 heading-section text-center ftco-animate">
+                    <span class="subheading">Harborlights Resto Menu</span>
+                    <h2 style="color: #107980;">Our Specialties</h2>
+                </div>
+            </div>
+            <div class="row">
+                @for(dish of Dishes; track dish._id){
+                <div class="col-lg-6 col-xl-6 d-flex">
+                    <div class="pricing-entry rounded d-flex ftco-animate">
+                        <div class="img" style="background-image: url({{dish.image}});"></div>
+                        <div class="desc p-4">
+                            <div class="d-md-flex text align-items-start">
+                                <h3 ><span>{{dish.title}}</span></h3>
+                                <span class="price" >${{dish.price}}</span>
+                            </div>
+                            <div class="d-block">
+                                <p>{{dish.description.substring(0,100)}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+    
+}

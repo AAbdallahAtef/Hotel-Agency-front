@@ -1,0 +1,155 @@
+@if(loading){
+    <h1>loading...</h1>
+}@else{
+    <div class="row m-4">
+        <div  [ngClass]="isSidePanelVisible ? 'col-8' : 'col-12' ">
+            <div 
+            style="background-color: #EDE1CF; box-shadow:0 4px 8px rgba(0, 0, 0, 0.6);" 
+            class="card">
+                <div style="background-color: #76A1A7;" class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            Rooms Listing
+                        </div>
+                        <div class="col-6 text-end">
+                            <button (click)="openSidePanel()" style="background-color:#107980;color: aliceblue;"
+                                class="btn btn-sm ">Add Room</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @for(room of Rooms; track room._id){
+                    <div class="card mb-3 m-3" 
+                    style="background-color: #76A1A7;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+                    transition: all .2s ease-in-out;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img  src={{room.image}} class="img-fluid rounded-start w-100 h-100" alt="Room">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 style="color: #334746;" class="card-title"><strong>{{room.type}}</strong> &nbsp;
+                                        &nbsp; &nbsp; &nbsp; $ {{room.basePrice}} </h5>
+                                    <p style="color: #334746;" class="card-text">{{room.description}}</p>
+                                        <!-- <p style="color: #334746;" class="card-text"> {{room.rating}}</p> -->
+                                        <app-star-rating [(value)]="room.rating"></app-star-rating>
+                                        <button routerLink="/update/{{room._id}}"
+                                            style="background-color:#107980;color: #ffff;"
+                                            class="btn btn-md card-text mt-4 ">
+                                            Edit Room
+                                        </button>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    
+        <div *ngIf="isSidePanelVisible" class="col-4">
+            <div
+            style="background-color: #EDE1CF; box-shadow:0 4px 8px rgba(0, 0, 0, 0.6);" 
+            class="card">
+                <div  style="background-color: #76A1A7;" class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            New Product
+                        </div>
+                        <div class="col-6 text-md-end">
+                            <button (click)="closeSidePanel()" 
+                            style="background-color:#107980;color: #ffff;"
+                            class="btn btn-sm ">Close</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Type</label>
+                            <input #type type="text" name="type" class="form-control" [(ngModel)]="roomObj.type" />
+                        </div>
+                        <div class="col-6">
+                            <label for="">Price</label>
+                            <input #basePrice type="text" name="basePrice" class="form-control" [(ngModel)]="roomObj.basePrice" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Standard Occupancy</label>
+                            <input #standardOccupancy name="standardOccupancy" type="text" class="form-control"
+                                [(ngModel)]="roomObj.standardOccupancy" />
+                        </div>
+                        <div class="col-6">
+                            <label for="">Maximum Occupancy</label>
+                            <input #maximumOccupancy name="maximumOccupancy" type="text" class="form-control"
+                                [(ngModel)]="roomObj.maximumOccupancy" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Rating</label>
+                            <input #rating type="text"  name='rating' class="form-control" [(ngModel)]="roomObj.rating" />
+                        </div>
+                        <!-- <div class="col-6">
+                            <label for="">Maximum Occupancy</label>
+                            <input #maximumOccupancy type="text" class="form-control" [(ngModel)]="roomObj.maximumOccupancy" />
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Extra Person</label>
+                            <input #extraPerson type="text" name="extraPerson" class="form-control" [(ngModel)]="roomObj.extraPerson" />
+                        </div>
+                        <div class="col-6">
+                            <label for="">Image Url:</label><br />
+                            <input #image type="url" name="image" class="form-control" [(ngModel)]="roomObj.image" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Quantity</label>
+                            <input #quantity type="number" name='quantity' class="form-control" [(ngModel)]="roomObj.quantity" />
+                        </div>
+                        <div class="col-6">
+                            <label for="">Branch ID :</label><br />
+                            <input #branchId type="number"  name="Branch ID" class="form-control" [(ngModel)]="roomObj.branchId" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <label for="">Services (separated by comma )</label>
+                            <input #services type="text" name="service" class="form-control" [(ngModel)]="roomObj.services" />
+                            <!-- <select style="width: 300px;" [(ngModel)]="roomObj.services"  class="form-select">
+                                    <option *ngFor="let serv of Rooms" [value]="serv.services">{{serv.services}}</option>
+                                </select> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <label for="">Description</label>
+                            <textarea #description rows="4" name="description" class="form-control"
+                                [(ngModel)]="roomObj.description"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <!-- <div class="col-6">
+                                <button class="btn btn-success">Reset</button>
+                            </div> -->
+                        <div class="col-6">
+                            <button class="btn"
+                            style="background-color:#107980;color: #ffff;"
+                                (click)="addRoom(type.value,standardOccupancy.value,maximumOccupancy.value,image.value,basePrice.value,extraPerson.value,description.value,services.value,rating.value,quantity.value,branchId.value)">Create
+                                Room</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

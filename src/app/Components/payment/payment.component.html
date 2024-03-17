@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center pb-5 mt-5 text-light">
+    <div class="col-md-5 col-xl-4">
+      <div class="rounded d-flex flex-column shadow" style="background-color:#76A1A7;" >
+      @if(loading){
+        <h1>loading...</h1>
+      }@else{
+     
+          <h3 style="margin-top: 20px; text-align: center; font-weight: bold;">Reservation Recap</h3>
+          @if(reserveDetails){
+            <img src={{reserveDetails.roomImage}}>
+          <div class="p-2 d-flex">
+        
+          <div class="col-8">Check-In Date</div>
+          <div class="ms-auto">{{reserveDetails.checkInDate}}</div>
+        </div>
+        <div class="p-2 d-flex">
+          <div class="col-8">Check-Out Date</div>
+          <div class="ms-auto">{{reserveDetails.checkOutDate}}</div>
+        </div>
+        <div class="p-2 d-flex">
+          <div class="col-8">Room Type</div>
+          <div class="ms-auto">{{reserveDetails.roomType}}</div>
+        </div>
+        
+        <div class="border-top px-2 mx-2"></div>
+        <div class="p-2 d-flex">
+          <div class="col-8">Quantity</div>
+          <div class="ms-auto">{{reserveDetails.roomsNo}}</div>
+        </div>
+        <div class="p-2 d-flex pt-3">
+
+          <div class="col-8">Room Price</div>
+          <div class="ms-auto">{{reserveDetails.roomPrice}}$</div>
+        </div>
+        <div class="p-2 d-flex">
+          <div class="col-8">
+       
+          </div>
+          <div class="ms-auto"></div>
+        </div>
+        <div class="border-top px-2 mx-2"></div>
+    
+        <div class="p-2 d-flex pt-3">
+          <div class="col-8">   Total Price</div> 
+          <div class="ms-auto">{{reserveDetails.totalPrice}}$</div>
+        </div>
+      
+      
+      
+      }
+    }
+      <div class="card-body text-center">
+        <div id="myPayPalButtons"></div>
+        </div>
+    </div>
+  </div>
+</div>
+ 
+
+ 
+    
+  
+  

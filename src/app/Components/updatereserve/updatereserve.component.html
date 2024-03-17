@@ -1,0 +1,72 @@
+@if(loading){
+    <h1>loding...</h1>
+}@else{
+    <!-- Default form register -->
+
+<form [formGroup]="myvalid" class="w-50 p-5 shadow mx-auto " 
+style="background-color: #76A1A7;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    transition: all .2s ease-in-out; font-size:15pt;font-weight: 600; border-radius: 15px;" action="">
+    <h3 class="mb-4 text-center" style="color:#1b3f4c ">Updating Reservation</h3>
+
+    <div class="form-row mb-4">
+        <div class="col-12">
+            <div class="check-date" >
+                <label style="color:#1b3f4c" for="date-in">Check In:</label>
+                <!-- <input type="date" formControlName="checkInDate"  class="date-input" id="date-in"> -->
+                <input type="date" formControlName="checkInDate"  class="form-control" id="date-in" >
+            </div>
+        </div>
+    </div>
+    <div class="form-row mb-4">
+        <div class="col-12">
+            <div class="check-date">
+                <label style="color:#1b3f4c" for="date-out">Check Out:</label>
+                <input type="date" formControlName="checkOutDate" class="form-control" id="date-out">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-row mb-4">
+        <div class="col-6">
+            <label style="color: #1b3f4c" for="date-out">Quantity:</label>
+            <input  type="number" formControlName="roomsNo" class="form-control" id="date-out">
+        </div>
+        <div class="col-6">
+            <div class="select-option">
+                <label style="color:#1b3f4c;" for="branch">Branch: </label>
+                <select id="branch" #ref (change)="getData(ref.value)" class="form-select"   formControlName="branch">
+                    <option disabled selected value=0 >Select Branch</option>
+                    @for (branch of branches;track branch._id){
+                        <option  value={{branch._id}} >{{branch.name}}</option>
+                        
+                    }
+                </select>                                
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row mb-4">
+        <div class="col-12">
+
+            <div class="select-option">
+                <label for="room" style="color:#1b3f4c; font-weight: bold;">Rooms: </label>
+                <select class="form-select" id="room" formControlName="roomId">
+                <option disabled selected value=0>Select Room</option>
+                  @for(filtered of Rooms;track filtered._id) {
+                    <option value={{filtered._id}}>{{filtered.type}}</option>
+                  }
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="text-center">
+        <button style="background-color: #107980;color:  #EDE1CF ;" class="btn w-25  my-4" (click)="sendData()" type="submit">Update</button>
+    </div>
+
+</form>
+
+<!-- Default form register -->
+}

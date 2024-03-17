@@ -1,0 +1,117 @@
+<!-- <div  style="background-color:#EDE1CF;">
+<div class="container py-5 "> -->
+<!-- <table  class="table text-center table-striped table-hover" style="background-color: #76A1A7;">
+      <thead >
+        <tr>
+          <th scope="col">Branch Name</th>
+          <th scope="col">Check In</th>
+          <th scope="col">Check Out</th>
+          <th scope="col">Reserved Room</th>
+          <th scope="col">Room Price</th>
+          <th scope="col">Total Price</th>
+          <th scope="col">Room details</th>
+          <th scope="col">Configuration</th>
+        </tr>
+      </thead>
+      <tbody >
+         @for(item of UserReserve; track item._id){
+            <tr >
+              <th  scope="row">{{item.branchName}}</th>
+              <td  >{{item.checkInDate}}</td>
+              <td >{{item.checkOutDate}}</td>
+              <td >{{item.roomsNo}}</td>
+              <td >{{item.roomPrice}}</td>
+              <td >{{item.totalPrice}}</td>
+              <td><a routerLink="/rooms/{{item._id}}" class="text-danger text-decoration-none">Show</a></td>
+              <td>
+                <button class="btn btn-danger" (click)="DeleteReserve(item._id)">Cancel</button>
+                <button class="btn ml-3 btn-success" (click)="UpdateReserve(item._id)">Update</button>
+              </td>
+            </tr>
+          } 
+      </tbody>
+    </table> -->
+
+@if(loading || waiting){
+<h1>loading....</h1>
+}@else{
+<section class="h-100  gradient-custom" style="background-color:#EDE1CF;">
+  <div class="container py-5 h-100 ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-12">
+        <div class="card" style="border-radius: 10px">
+          <div class="card-header px-4 py-5 " style="background-color: #76A1A7;">
+            <h5 class=" mb-0" style="color: #EDE1CF;">
+              Thanks For Your Reservations,
+              <span style="color: white">{{ currentUser?.name}}</span>!
+            </h5>
+          </div>
+          <div class="card-body p-4 shadow" style="background-color: #EDE1CF;">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+            </div>
+            @for(item of UserReserve ; track item._id){
+            <div class="card shadow border mb-4 ">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-3  ">
+                    <img src={{item.roomImage}} class="img-fluid" alt="Phone"  />
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center p-0">
+                    <p class="text-muted mb-0">From: {{item.checkInDate}}</p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 ">To : {{item.checkOutDate}}</p>
+                  </div>
+                  <div class="col-md-1 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 ">Qty: {{item.roomsNo}}</p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 ">Price: {{item.roomPrice}}</p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 ">Total Price: {{item.totalPrice}}</p>
+                  </div>
+
+                </div>
+                <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1" />
+
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-5  d-flex justify-content-center justify-content-md-start align-items-center">
+                    <p class="text-muted mb-0 ">Room Type: {{item.roomType}}</p>
+                  </div>
+                  <div class="col-md-3 d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 ">Branch Name: {{item.branchName}}</p>
+                  </div>
+
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center ">
+                    <p class="text-muted mb-1 small"> <button class="btn btn-success "
+                        (click)="UpdateReserve(item._id)">Update</button></p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small"> <button class="btn btn-danger"
+                        (click)="DeleteReserve(item._id)">Cancel</button></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            }
+
+
+
+            <div class="d-flex justify-content-between mb-5">
+            </div>
+          </div>
+          <div class="card-footer border-0 px-4 py-5" style="
+              background-color: #76A1A7;
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+            ">
+            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+}

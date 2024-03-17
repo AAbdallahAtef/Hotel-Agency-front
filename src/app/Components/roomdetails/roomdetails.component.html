@@ -1,0 +1,236 @@
+@if(loading){
+  <h1>loading...</h1>
+}@else{
+  <!-- Breadcrumb Section End -->
+  <section >
+    <div class="container">
+        <div class="jumbotron  bg-img" style="background-image: url(https://cache.marriott.com/content/dam/marriott-renditions/CCUWI/ccuwi-suite-5034-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*); height: 20rem;" >
+            <div class="container mb-5">
+            </div>
+          </div>
+         
+          <div class="row mb-2 ">
+            @if(Reviews){
+                @for(Rev of Reviews ; track Rev.id){
+            <div class="col-md-6 " >
+              <div class="card flex-md-row mb-4 h-md-250 h-100" style="background-color: #76A1A7;">
+                <div class="card-body d-flex flex-column align-items-start ">
+                  <h3 class="mb-0">
+                    <img class="avatar avatar-xxl rounded-circle" style="height:5rem ;width:5rem"  data-src={{Rev.imageUrl}} alt="Card image cap">
+
+                    <a class="text-light ml-2" href="#">{{Rev.author}}</a>
+                  </h3>
+                  <div class="mb-1" style="color: #EDE1CF;"> {{Rev.date}}  </div>
+                  <p class="card-text mb-auto" style="color: #107980;"> {{Rev.text}} </p>
+                  <span style="color:gold;">Reviews:
+                    <i class="bi bi-star-fill " style="color: rgb(228, 201, 45);"></i>
+                    <i class="bi bi-star-fill "  style="color: rgb(228, 201, 45);"></i>
+                    <i class="bi bi-star-fill "  style="color: rgb(228, 201, 45);"></i>
+                    <i class="bi bi-star-fill "  style="color: rgb(228, 201, 45);"></i>
+                </span>
+                </div>
+               
+              </div>
+            </div>
+        }
+    }
+          </div>
+          
+        </div>
+
+<!--Room Features Gallery -->
+
+
+<div class="album py-5 " style="background-color: #EDE1CF;">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4 shadow" style="background-color:#D9C5BC;">
+        <img class="card-img-top" src="https://s7d1.scene7.com/is/image/marriotts7prod/lc-buepl-breakfast-buffet-37816-74699:Classic-Hor?wid=1215&fit=constrain"  alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text text-center" style="color: #107980;">You can choose your Room with our variety of Food and Snacks 🍔🍜 </p> 
+          <div class="d-flex justify-content-between align-items-center">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4 shadow " style="background-color:#D9C5BC;">
+        <img class="card-img-top" src="https://i.pinimg.com/originals/3a/a0/4e/3aa04ecb8fe2023bc327f9b66a2d9166.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text text-center"  style="color: #107980;"> Our View feature is amazing ! you can see sea and beauty in front of you 🌊</p>
+          <div class="d-flex justify-content-between align-items-center">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4  shadow" style="background-color:#D9C5BC;">
+        <img class="card-img-top" src="https://media-cdn.tripadvisor.com/media/photo-s/0e/86/bf/17/this-room-surprises-us.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text text-center" style="color: #107980;">You can ask for honeymoon features for couples 💕😍</p>
+          <div class="d-flex justify-content-between align-items-center">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- 
+<div id="myCarousel" class="carousel slide mb-6 col-lg-8 mx-auto" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active ">
+   <img class="bd-placeholder-img"  src="https://hyakkei.style/wp-content/uploads/main-243.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+    </div>
+    <div class="carousel-item">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="https://www.thehotelguru.com/_images/13/e8/13e84f7afa7171883f07a6a16e6406d1/600x422.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+    </div>
+    <div class="carousel-item">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="https://globalgrasshopper.com/wp-content/uploads/2009/12/Yotel-New-York-2.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+-->
+
+
+<div class="slider  mb-6 col-lg-9 mx-auto ">
+<div class="slide slide1 " > 
+<h1 class="slide slide1 text-center " style="color: #EDE1CF; font-size:5rem; margin-top: 70px;"> London Theme </h1>
+<img src="https://images.squarespace-cdn.com/content/v1/61e39dd52531e62193e5fac4/dc77111a-232e-4bad-bb5e-2c98c18a1b4d/banner.jpg" >
+</div>
+
+<div class="slide slide2">
+<h2 class="slide slide2  text-center" style="color:white;font-size:5rem; margin-top: 70px;"> Tokyo Theme </h2>
+<img src="https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/97/2023/03/01070644/1118_privilege_queen_03_20221214_s_w-1500x400.jpg">
+</div>
+<div class="slide slide3">
+<h2 class="slide slide3  text-center" style="color:white; font-size:5rem; margin-top: 70px;"> New York Theme </h2>
+<img src="https://www.wallart.com/media/catalog/product/cache/871f459736130e239a3f5e6472128962/a/d/adobestock_277637491_04.jpg">
+</div>
+
+<div class="navigation">
+<div class="bar bar1"></div>
+<div class="bar bar2"></div>
+<div class="bar bar3"></div>
+<div class="bar bar4"></div>
+</div>
+</div>
+
+
+
+
+
+<!-- Room Details Section Begin -->
+<section class="room-details-section spad ">
+    <div class="container  ">
+        <div class="row">
+            
+            @if(roomdetails){
+            <div class="col-lg-12" style="margin-top: 7rem; ">
+                <div class="room-details-item shadow p-3 ">
+                    <div style="text-align: center;margin-top:1rem;">
+                    <img  src={{roomdetails.image}} alt="" style="border:3px solid #0b3c40; " width="70%">
+                </div>
+                    <div class="rd-text text-center" >
+                        <h1 style="color:#107980 ;text-align: center; margin-top: 20px; ">{{roomdetails.type}}</h1>
+                     
+                        <h2 style="color:#CC8770 ;">{{roomdetails.basePrice}}$<span>/Pernight</span></h2>
+                       <h3 style="color: #76A1A7;">Extra Person : {{roomdetails.extraPerson}}</h3>
+                       <h4 style="color:#CC8770;"> Maximum Occupancy : {{roomdetails.maximumOccupancy}}</h4>
+                       <h5 style="color: #107980;">Services : {{roomdetails.services}}</h5>
+                        <p class="f-para" style="color: #107980;">Description : {{roomdetails.description}}     </p>
+                        <button class="btn palatin-btn shadow" routerLink="/reservation">Book Now </button>
+                    </div>
+                 
+                </div>
+
+                <!-- <div class="review-add text-center w-100" style="margin-left: 15rem;">
+                    <h2  class='h2 mb-4' style="text-align: center;color: goldenrod;">Add Review</h2>
+                    <form [formGroup]="ReadReviews" class="ra-form shadow" style="background-color:#76A1A7 ;" >
+
+                        <div class="row text-center " style="margin-left:10rem;">
+                            <div class="col-lg-8 mt-5">
+                            <input type="text" name="image" formControlName="imageUrl" class="form-control" id="customFile" />
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="text" formControlName="author" name="username" placeholder="Your username">
+                            </div>
+                            <div class="col-lg-8">
+                                <input type="date" formControlName="date" name="date" placeholder="Date">
+                                <input type="number" formControlName="rating" name="rating">
+                            </div>
+                            <div class="col-lg-8 mb-3">
+                                <textarea placeholder="Your Review" formControlName="text"></textarea>
+                                <button type="submit" style="background-color:#107980;" (click)="AddReviews()">Submit Now</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div> -->
+            </div>
+        }      
+        
+      
+          <form class="container py-5" [formGroup]="ReadReviews" >
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-8 col-lg-12 col-xl-12">
+                <div class="card rounded-3 shadow" style="background-color: #76A1A7;">
+                  <div class="card-body  my-2 mx-auto w-75">
+                    <div class="d-flex align-items-center" >
+                      <div>
+                       <img src="https://static.thenounproject.com/png/76795-200.png">
+                      </div>
+                      <div class=''>
+                        <p class="d-flex flex-column mb-0">
+                    <input type="text" class="form-control" name="name" placeholder="username" formControlName="author">
+                        </p>
+                      </div>         
+                    </div>
+                    <div class=" text-center">
+                        <input type="date" class="form-control mb-3 " placeholder="date"  formControlName="date">
+                        <input type="number" class="form-control mb-3 " formControlName="rating" name="rating" placeholder="rating">
+                        <input type="text" name="image" placeholder="imageUrl" formControlName="imageUrl" class="form-control mb-3 " >
+                        <textarea type="text" class="form-control mb-3 " placeholder="your review" formControlName="text" ></textarea>
+
+                          <div class="d-flex flex-column">
+                      </div>
+                    </div>
+        
+                    <div class="d-flex justify-content-between align-items-center pb-1">
+                      <button type="submit" class="btn mx-auto text-light"  style="background-color:#107980;" (click)="AddReviews()">Submit Now</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+  
+        </div>
+    </div>
+</section>
+</section>
+
+}

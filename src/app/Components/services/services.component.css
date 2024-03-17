@@ -1,0 +1,84 @@
+.breadcumb-area::after {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+.book-now-form form .form-group,
+.book-now-form form button {
+  background-color: #363636;
+  border-left: 2px solid #107980;
+  border-top: 2px solid #107980;
+  border-bottom: 2px solid #107980;
+}
+
+.book-now-form form button {
+  border-right: 2px solid #107980;
+  font-size: 16px;
+  background-color: #107980;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.myh4{
+  color: #107980;
+}
+
+.section-heading .line- {
+  text-align: center;
+  width: 90px;
+  height: 2px;
+  background-color: #107980;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.single-contact-information .contact-content p:first-child {
+  font-size: 18px;
+  color: #107980;
+
+  margin-bottom: 0;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 90px;
+  flex: 0 0 40px;
+  max-width: 90px;
+  width: 218px;
+}
+
+.palatin-btn {
+  background-color: #107980;
+
+  color: #ffffff;
+}
+
+.single-cool-fact:hover,
+.single-cool-fact:focus {
+  background-color:#87c9d2;
+  color: #fff;
+}
+.single-cool-fact .scf-text i {
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  display: block;
+  font-size: 70px;
+  margin-bottom: 10px;
+  color: #ede1cf;
+}
+
+.single-cool-fact .scf-text p {
+  font-size: 14px;
+  margin-bottom: 0;
+  color: #fff;
+  line-height: 1;
+}
+.single-service-area i {
+  display: block;
+  margin-bottom: 30px;
+  color: #107980;
+  font-size: 60px;
+}
+p{
+color: #0c5b61;  
+}

@@ -1,0 +1,50 @@
+.breadcumb-area::after {
+    content: "";
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.37);
+  }
+  
+  .book-now-form form .form-group,
+  .book-now-form form button {
+    background-color: #363636;
+    border-left: 2px solid #107980;
+    border-top: 2px solid #107980;
+    border-bottom: 2px solid #107980;
+  }
+  
+  .book-now-form form button {
+    border-right: 2px solid #107980;
+    font-size: 16px;
+    background-color: #107980;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+  
+  .section-heading .line- {
+    text-align: center;
+    width: 90px;
+    height: 2px;
+    background-color: #107980;
+    display: block;
+    margin-bottom: 40px;
+  }
+  
+  .single-contact-information .contact-content p:first-child {
+    font-size: 18px;
+    color: #107980;
+  
+    margin-bottom: 0;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 90px;
+    flex: 0 0 40px;
+    max-width: 90px;
+    width: 218px;
+  }
+  p{
+    color: #0c5359;
+  }
+  

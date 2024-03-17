@@ -1,0 +1,88 @@
+@if(loading){
+  <h1>loading....</h1>
+}@else{
+      <!-- Hero Section Begin -->
+      <section class="hero-section" style="background-image: url(assets/img/bg-img/agency1.jpg );background-size: cover;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="hero-text">
+                        <h1> A Luxury Hotel</h1>
+                    </div>
+                </div>
+               <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1 ">
+                    <div class="booking-form " style="margin-top: 9rem;background-color: #EDE1CF;">
+                      <h3 style="color:#107980 ;font-weight: bold;">Booking Your Room</h3>
+                      <form [formGroup]="ReserveRoom">
+                        <label style="color: #107980;font-weight: bold;" for="date-in">Check In:</label>
+                        <div class="check-date" >
+                            <input type="date" formControlName="checkInDate"  class="date-input rounded" id="date-in">
+                            <i class="icon_calendar"></i>
+                        </div>
+                        <label style="color: #107980;font-weight: bold;" for="date-out">Check Out:</label>
+  
+                        <div class="check-date">
+                            <input type="date" formControlName="checkOutDate" class="date-input rounded" id="date-out">
+                            <i class="icon_calendar"></i>
+                        </div>
+                        <label style="color: #107980;font-weight: bold;" for="guest">Branch:</label>
+                        <div class="select-option">
+                              <select id="guest" #ref (change)="getData(ref.value)" formControlName="branch" class="rounded form-select">
+                                <option disabled selected >Select Branch</option>
+                                @for (branch of Branches;track branch._id){
+                                <option value={{branch._id}} >{{branch.name}}</option>
+                              }
+                              </select>                                
+                        </div>
+                        <label for="room" style="color: #107980; font-weight: bold;">Rooms:</label>
+                        <div class="select-option ">
+                            <select  id="room" formControlName="roomId"  class="rounded form-select">
+                              <!-- <option disabled selected >Select Branch</option> -->
+                              <option disabled selected value=0>Select Room</option>
+                              @for(filtered of roomofbranch;track filtered._id) {
+                                <option   value={{filtered._id}}>{{filtered.type}}</option>
+                              }
+                            </select>
+                        </div>
+                        <label style="color: #107980;font-weight: bold;" >Quantity:</label><br>
+                        <input type="number" formControlName="roomsNo" class="rounded p-2" style="border: 0;" placeholder="Number Of Rooms"/><br/>
+                        <button type="button" class="btn mybtn rounded" (click)="ReserveRooms()" >Process To Payment</button>
+                        <!-- <button type="button" class="btn mybtn rounded"  routerLink="/payment">Payment</button> -->
+                      </form>
+                      
+  
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+  
+        <!-- <div class="hero-slider owl-carousel">
+          <div id="carouselExampleInterval" class="carousel slide carousel-dark carousel-fade " data-bs-ride="carousel">
+            <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="1000" >
+            <img src="assets/img/bg-img/agency1.jpg "  class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/bg-img/pool1.jpg " class="d-block w-100">
+          </div>
+          <div class="carousel-item" >
+            <img src="assets/img/bg-img/pool5.jpg " class="d-block w-100">
+          </div>
+      </div>
+      </div>
+      </div> -->
+  
+   
+    
+  
+  
+  
+  
+  
+  
+    </section>
+  
+  
+  
+}
