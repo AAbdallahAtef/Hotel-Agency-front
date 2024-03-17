@@ -14,13 +14,9 @@ import { UserService } from '../../Services/user.service';
   styleUrl: './regestration.component.css',
 })
 export class RegestrationComponent implements OnInit{
-  // container: any;
-  // registerBtn: any;
-  // loginBtn: any;
   loading:boolean=true;
   appear:boolean= false;
   res:any;
-  
   constructor(private  userService: UserService,private router:Router) {}
 
   ngOnInit(): void {
