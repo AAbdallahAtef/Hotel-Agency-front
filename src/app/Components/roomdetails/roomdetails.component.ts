@@ -58,9 +58,6 @@ ReadReviews=new FormGroup({
   next:(data)=>{
     this.Reviews=data
     this.rev=data
-    console.log(this.rev);
-    
-    console.log(this.Reviews)
   }
 
 })     

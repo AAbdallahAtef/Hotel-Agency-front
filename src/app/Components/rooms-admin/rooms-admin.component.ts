@@ -67,7 +67,6 @@ export class RoomsAdminComponent implements OnInit {
       .subscribe(
         {
           next: (data) => {
-            console.log(data)
             this.Rooms = data;
           },
           error: (err) => { console.log(err) }
@@ -91,7 +90,6 @@ export class RoomsAdminComponent implements OnInit {
   addRoom(type: any, standardOccupancy: any, maximumOccupancy: any, basePrice: any, extraPerson: any,description: any,services:any,quantity:any,branchId:any) {
     let newRoom = { type, standardOccupancy, maximumOccupancy, image:this.imageSource, basePrice, extraPerson,rating:5, description, services, quantity, branchId };
      newRoom.services = services.split(",");
-    console.log(newRoom.services);
     this.roomsServ.addRoom(newRoom).subscribe({
       next:(data)=>{
         this.addedRoom=data

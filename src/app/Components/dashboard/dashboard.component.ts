@@ -86,7 +86,6 @@ export class DashboardComponent implements OnInit {
       next:(data)=>{
         this.currentUser =data
         if(this.currentUser.isAdmin){
-          // this.router.navigate(['dashboard'])
             setTimeout(()=>{
            this.RenderLineChart()
             },200)
@@ -103,24 +102,6 @@ export class DashboardComponent implements OnInit {
         this.router.navigateByUrl('registration')  
       }
     })
-   
-
-    // this.DashboardServ.getDashboardDishes().subscribe({
-    //   next: (data) => {
-
-    //     this.AllDishes = data;
-    //     for (let i = 0; i < this.AllDishes.length; i++) {
-
-    //       this.dishesPrice.push(this.AllDishes[i].price)
-    //       this.dishesTitle.push(this.AllDishes[i].title)
-
-    //     }
-    //     this.RenderPieChart()
-    //   },
-    //   error: (err) => { console.log(err) }
-    // })
- 
-
   }
 
   displayData(){
@@ -183,9 +164,6 @@ export class DashboardComponent implements OnInit {
           this.rating.push(this.AllRoomsOfBranchOne[i].rating)
           this.roomQuantity.push(this.AllRoomsOfBranchOne[i].quantity)
         }
-
-        // this.RenderChart(this.rating, this.roomType)
-
       },
       error: (err) => { console.log(err) }
     })
@@ -203,8 +181,6 @@ export class DashboardComponent implements OnInit {
           this.roomTwoRating.push(this.AllRoomsOfBranchTwo[i].rating)
           this.roomTwoQuantity.push(this.AllRoomsOfBranchTwo[i].quantity)
         }
-
-        // this.RendrRoomTwo(this.roomTwoRating, this.roomTwoType)
       },
       error: (err) => { console.log(err) }
     })
@@ -224,8 +200,6 @@ export class DashboardComponent implements OnInit {
         setTimeout(()=>{
           this.RenderDoughnutChart()
          },1000)
-
-        // this.RendrRoomThree(this.roomThreeRating, this.roomThreeType)
       },
       error: (err) => { console.log(err) }
     })
@@ -277,122 +251,6 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
-
-
-   // RenderChart(rating: any, roomType: any) {
-
-  //   const myChart = new Chart("myChart", {
-  //     type: 'bar',
-  //     data: {
-  //       labels: roomType,
-  //       datasets: [
-  //         {
-  //           label: ' Room Rating',
-  //           data: rating,
-  //           backgroundColor: '#1b3f4c',
-  //           borderWidth: 1
-  //         },
-  //         {
-  //           label: ' Room Quantity',
-  //           data: this.roomQuantity,
-  //           backgroundColor: '#cb8670',
-  //           borderWidth: 1
-  //         }
-  //       ]
-  //     },
-  //     options: {
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true
-  //         }
-  //       }
-  //     }
-  //   });
-  // }
-
-  // RenderPieChart() {
-  //   const myChart = new Chart("pie", {
-  //     type: 'pie',
-  //     data: {
-  //       labels: this.dishesTitle,
-  //       datasets: [
-  //         {
-  //           label: 'Dishes Price',
-  //           data: this.dishesPrice,
-  //           backgroundColor: ['#cb8670', 'grey', '#1b3f4c', ' gold', '#5e3e33', 'bisque', 'rgb(0, 104, 74)', '#363636', 'pink', 'black'],
-  //           borderWidth: 1
-  //         },
-  //       ]
-  //     },
-  //     options: {
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true
-  //         }
-  //       }
-  //     }
-  //   });
-  // }
-
-  // RendrRoomTwo(rating: any, roomType: any) {
-  //   const myChart = new Chart("ChartBranchTwo", {
-  //     type: 'bar',
-  //     data: {
-  //       labels: roomType,
-  //       datasets: [
-  //         {
-  //           label: ' Room Rating',
-  //           data: rating,
-  //           backgroundColor: '#1b3f4c',
-  //           borderWidth: 1
-  //         },
-  //         {
-  //           label: ' Room Quantity',
-  //           data: this.roomQuantity,
-  //           backgroundColor: '#cb8670',
-  //           borderWidth: 1
-  //         }
-  //       ]
-  //     },
-  //     options: {
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true
-  //         }
-  //       }
-  //     }
-  //   });
-  // }
-
-  // RendrRoomThree(rating: any, roomType: any) {
-  //   const myChart = new Chart("ChartBranchThree", {
-  //     type: 'bar',
-  //     data: {
-  //       labels: roomType,
-  //       datasets: [
-  //         {
-  //           label: ' Room Rating',
-  //           data: rating,
-  //           backgroundColor: '#1b3f4c',
-  //           borderWidth: 1
-  //         },
-  //         {
-  //           label: ' Room Quantity',
-  //           data: this.roomQuantity,
-  //           backgroundColor: '#cb8670',
-  //           borderWidth: 1
-  //         }
-  //       ]
-  //     },
-  //     options: {
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true
-  //         }
-  //       }
-  //     }
-  //   });
-  // }
 }
 
 

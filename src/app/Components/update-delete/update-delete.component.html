@@ -3,13 +3,11 @@
 }@else{
     <div  class="container-fluid mt-5 mb-5  w-50">
         @if (roomObj) {
-            <!-- <img src={{roomObj.image}}  alt="..."/> -->
             <form [formGroup]="myvalidation" style="background-color: #76A1A7;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
             transition: all .2s ease-in-out; font-size:15pt;font-weight: 600; border-radius: 15px;" class="form p-4">
                 <div class="row mb-3">
                     <div class="col-12">
                         <img src={{roomObj.image}} style="border-radius: 8px;margin-left: 8rem;" class=" w-50 mb-3" alt="Room"/>
-                        <!-- <app-star-rating [(value)]="roomObj.rating"></app-star-rating> -->
                         <h4 class="text-start font-weight-bold text-dark"> $ {{ roomObj.basePrice }}</h4>
                     </div>
                 </div>
@@ -70,10 +68,6 @@
                 </div>
     
                 <div class="row mb-3">
-                    <!-- <div class="col-12">
-                        <label class="form-label" style="color: #1b3f4c;">Rating</label>
-                        <input type="number"  #rating formControlName="rating" value={{roomObj.rating}}  class="form-control" placeholder="rating">
-                    </div> -->
                 </div>
     
                 <div class="row mb-3">

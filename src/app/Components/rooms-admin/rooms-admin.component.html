@@ -32,7 +32,6 @@
                                     <h5 style="color: #334746;" class="card-title"><strong>{{room.type}}</strong> &nbsp;
                                         &nbsp; &nbsp; &nbsp; $ {{room.basePrice}} </h5>
                                     <p style="color: #334746;" class="card-text">{{room.description}}</p>
-                                        <!-- <p style="color: #334746;" class="card-text"> {{room.rating}}</p> -->
                                         <app-star-rating [(value)]="room.rating"></app-star-rating>
                                         <button routerLink="/update/{{room._id}}"
                                             style="background-color:#107980;color: #ffff;"
@@ -92,14 +91,6 @@
                         </div>
                     </div>
                     <div class="row">
-                        <!-- <div class="col-6">
-                            <label for="">Rating</label>
-                            <input #rating type="text"  name='rating' class="form-control" [(ngModel)]="roomObj.rating" />
-                        </div> -->
-                        <!-- <div class="col-6">
-                            <label for="">Maximum Occupancy</label>
-                            <input #maximumOccupancy type="text" class="form-control" [(ngModel)]="roomObj.maximumOccupancy" />
-                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col-6">
@@ -125,9 +116,6 @@
                         <div class="col-12 mt-3">
                             <label for="">Services (separated by comma )</label>
                             <input #services type="text" name="service" class="form-control" [(ngModel)]="roomObj.services" />
-                            <!-- <select style="width: 300px;" [(ngModel)]="roomObj.services"  class="form-select">
-                                    <option *ngFor="let serv of Rooms" [value]="serv.services">{{serv.services}}</option>
-                                </select> -->
                         </div>
                     </div>
                     <div class="row">
@@ -138,9 +126,6 @@
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <!-- <div class="col-6">
-                                <button class="btn btn-success">Reset</button>
-                            </div> -->
                         <div class="col-6">
                             <button class="btn"
                             style="background-color:#107980;color: #ffff;"

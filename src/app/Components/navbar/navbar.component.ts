@@ -19,7 +19,6 @@ export class NavbarComponent {
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe({
       next:(data) =>{
-        // console.log(data);
         this.currentUser = data
       },
       error:(error)=>{this.currentUser={}}

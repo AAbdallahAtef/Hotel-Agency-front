@@ -78,7 +78,6 @@ next:(data)=>{
       this.branchServ.getBranchById(this.ReserveRoom.value.branch).subscribe({
         next:(value)=>{
           this.SelectedBranch = value
-          console.log(this.SelectedBranch);
           this.schema={
             checkInDate:this.ReserveRoom.value.checkInDate,
             userId:this.currentUser._id,
@@ -96,13 +95,7 @@ next:(data)=>{
     }
   })
 }
-// getBranch(){
-//   console.log(this.ReserveRoom.value.branch);
-  
-
-// }
 serv(){
-  console.log(this.schema);
   
   this.branchServ.ReserveRoom(this.schema).subscribe({
     next:(data)=>{

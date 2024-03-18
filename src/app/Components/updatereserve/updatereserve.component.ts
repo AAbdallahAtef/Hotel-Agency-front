@@ -85,7 +85,6 @@ export class UpdatereserveComponent implements OnInit {
         },
         complete:()=>{
           let totalPrice=this.SelectedRoom.basePrice*(+(this.myvalid.value.roomsNo || 0))
-          console.log(this.myvalid.value.checkOutDate);
           
         let updatedReserv = {...this.myvalid.value,roomPrice:this.SelectedRoom.basePrice,totalPrice:totalPrice,userId:this.currentUser._id,branchName:this.branchName}
         this.branchServ.updateReserv(this.ID,updatedReserv).subscribe({

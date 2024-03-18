@@ -86,13 +86,8 @@ export class UpdateDeleteComponent implements OnInit {
     //convert services from string to array 
     const split_services = newRoom.services.split(",");
     newRoom.services = split_services
-
-
-
-    console.log("My Console");
     this.roomsServ.updateRoom(this.ID, newRoom).subscribe({
       complete: () => {
-        console.log('Updated')
         this.router.navigate(['roomsadmin'])
       }
     })

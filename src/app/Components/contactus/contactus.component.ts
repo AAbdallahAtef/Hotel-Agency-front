@@ -35,7 +35,6 @@ export class ContactusComponent implements OnInit {
     this.branchesService.getBranches()
       .subscribe({
         next:(data)=> {
-          console.log(data)
           this.Branches = data;
         },
         error:(err)=>{console.log(err)}

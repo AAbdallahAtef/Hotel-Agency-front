@@ -1,7 +1,6 @@
 @if(loading){
   <h1>loading...</h1>
 }@else{
-  <!-- Breadcrumb Section End -->
   <section >
     <div class="container">
         <div class="jumbotron  bg-img" style="background-image: url(https://cache.marriott.com/content/dam/marriott-renditions/CCUWI/ccuwi-suite-5034-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*); height: 20rem;" >
@@ -77,37 +76,6 @@
 </div>
 
 
-
-<!-- 
-<div id="myCarousel" class="carousel slide mb-6 col-lg-8 mx-auto" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active ">
-   <img class="bd-placeholder-img"  src="https://hyakkei.style/wp-content/uploads/main-243.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-    </div>
-    <div class="carousel-item">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="https://www.thehotelguru.com/_images/13/e8/13e84f7afa7171883f07a6a16e6406d1/600x422.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-    </div>
-    <div class="carousel-item">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="https://globalgrasshopper.com/wp-content/uploads/2009/12/Yotel-New-York-2.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
--->
-
-
 <div class="slider  mb-6 col-lg-9 mx-auto ">
 <div class="slide slide1 " > 
 <h1 class="slide slide1 text-center " style="color: #EDE1CF; font-size:5rem; margin-top: 70px;"> London Theme </h1>
@@ -156,32 +124,7 @@
                         <p class="f-para" style="color: #107980;">Description : {{roomdetails.description}}     </p>
                         <button class="btn palatin-btn shadow" routerLink="/reservation">Book Now </button>
                     </div>
-                 
                 </div>
-
-                <!-- <div class="review-add text-center w-100" style="margin-left: 15rem;">
-                    <h2  class='h2 mb-4' style="text-align: center;color: goldenrod;">Add Review</h2>
-                    <form [formGroup]="ReadReviews" class="ra-form shadow" style="background-color:#76A1A7 ;" >
-
-                        <div class="row text-center " style="margin-left:10rem;">
-                            <div class="col-lg-8 mt-5">
-                            <input type="text" name="image" formControlName="imageUrl" class="form-control" id="customFile" />
-                            </div>
-                            <div class="col-lg-8">
-                                <input type="text" formControlName="author" name="username" placeholder="Your username">
-                            </div>
-                            <div class="col-lg-8">
-                                <input type="date" formControlName="date" name="date" placeholder="Date">
-                                <input type="number" formControlName="rating" name="rating">
-                            </div>
-                            <div class="col-lg-8 mb-3">
-                                <textarea placeholder="Your Review" formControlName="text"></textarea>
-                                <button type="submit" style="background-color:#107980;" (click)="AddReviews()">Submit Now</button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div> -->
             </div>
         }      
         
@@ -202,8 +145,6 @@
                       </div>         
                     </div>
                     <div class=" text-center " >
-                        <!-- <input type="date" class="form-control mb-3 " placeholder="date"  formControlName="date"> -->
-
                         <input type="number"#rating value="" class="form-control mb-3 " formControlName="rating" name="rating"  placeholder="rating">
                         <textarea type="text" class="form-control mb-3 " placeholder="your review" formControlName="text" ></textarea>
 

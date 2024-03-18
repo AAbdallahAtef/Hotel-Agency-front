@@ -9,7 +9,6 @@
       </div>
       <ul class="menu-items">
         <li [ngStyle]="{display:(currentUser.isAdmin)?'':'none'}" ><a routerLink="/dashboard">Dashboard</a></li>
-        <!-- <li  [ngStyle]="{display:(currentUser.isAdmin)?'':'none'}"><a routerLink="/add">AddRoom</a></li> -->
         <li [ngStyle]="{display:(currentUser.isAdmin)?'':'none'}"><a routerLink="/roomsadmin">Add rooms</a></li>
         <li><a routerLink="/home">Home</a></li>
         <li><a routerLink="/about">About</a></li>
@@ -29,9 +28,6 @@
           </li>
       
       </ul>
-     
-        <!-- <a routerLink="#" (click)="onLogin()" [ngStyle]="{display:(!currentUser.name)?'block':'none'}"   style="background-color: #CC8770 ;"  class="btn palatin-btn text-center">Login or Register</a> -->
-   
       <h1 class="logo"> 
         <img src="assets/img/core-img/favicon.ico"/>
       Hotel Agency
@@ -42,6 +38,3 @@
 </nav>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
-<!-- <div class="mt-5">
-
-</div> -->

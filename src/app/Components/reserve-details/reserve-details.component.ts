@@ -50,25 +50,6 @@ export class ReserveDetailsComponent implements OnInit{
     next:(data)=>{
        this.UserReserve=data
        this.displayReservation()
-      //  if(this.UserReserve.message){
-      //   alert('No reservations found please make a reservation first')
-      //   this.router.navigate(['reservation'])
-      // }else{
-      //   this.waiting=false
-      //   console.log(data);
-      //   this.UserReserve.map((el:any)=>{
-      //    el.checkInDate=el.checkInDate.split('T')[0]
-      //    el.checkOutDate = el.checkOutDate.split('T')[0]
-      //    this.roomServ.GetRoomByID(el.roomId).subscribe({
-      //      next:(data)=>{
-      //        this.roomData=data
-      //        el.roomImage=this.roomData.image
-      //        console.log(el.roomImage);
-      //        el.roomType=this.roomData.type
-      //      }
-      //    })
-      //   })
-      // }
     }
    })
   }
@@ -85,7 +66,6 @@ export class ReserveDetailsComponent implements OnInit{
          next:(data)=>{
            this.roomData=data
            el.roomImage=this.roomData.image
-           console.log(el.roomImage);
            el.roomType=this.roomData.type
          }
        })
@@ -98,10 +78,6 @@ export class ReserveDetailsComponent implements OnInit{
         this.UserReserve=data
         this.UserReserve=this.UserReserve.data
          this.displayReservation()
-        // if(this.UserReserve.length === 0){
-        //   alert('No reservations found please make a reservation first')
-        //   this.router.navigate(['reservation'])
-        // }
       }
     })
   }

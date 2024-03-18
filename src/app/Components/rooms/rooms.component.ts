@@ -45,7 +45,6 @@ export class RoomsComponent implements OnInit  {
     .subscribe(
       {
         next:(data)=> {
-          console.log(data)
           this.Rooms = data;
           this.filteredArray=data 
         },
@@ -57,7 +56,6 @@ export class RoomsComponent implements OnInit  {
   GetBranches() {
     this.branchServ.getBranches().subscribe({
       next:(data)=>{
-       console.log(data);
        this.Branches=data
          },
        error:(err)=>{
@@ -68,7 +66,6 @@ export class RoomsComponent implements OnInit  {
 
   GetFiltered(event:any){
     let branchName=event
-    console.log(branchName);
     this.roomsServ.GetRoomByBranchId(branchName).subscribe({
     next:(data)=>{ this.filteredArray=data},
     error:(err)=>{console.log(err)}

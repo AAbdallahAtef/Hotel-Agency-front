@@ -1,37 +1,3 @@
-<!-- <div  style="background-color:#EDE1CF;">
-<div class="container py-5 "> -->
-<!-- <table  class="table text-center table-striped table-hover" style="background-color: #76A1A7;">
-      <thead >
-        <tr>
-          <th scope="col">Branch Name</th>
-          <th scope="col">Check In</th>
-          <th scope="col">Check Out</th>
-          <th scope="col">Reserved Room</th>
-          <th scope="col">Room Price</th>
-          <th scope="col">Total Price</th>
-          <th scope="col">Room details</th>
-          <th scope="col">Configuration</th>
-        </tr>
-      </thead>
-      <tbody >
-         @for(item of UserReserve; track item._id){
-            <tr >
-              <th  scope="row">{{item.branchName}}</th>
-              <td  >{{item.checkInDate}}</td>
-              <td >{{item.checkOutDate}}</td>
-              <td >{{item.roomsNo}}</td>
-              <td >{{item.roomPrice}}</td>
-              <td >{{item.totalPrice}}</td>
-              <td><a routerLink="/rooms/{{item._id}}" class="text-danger text-decoration-none">Show</a></td>
-              <td>
-                <button class="btn btn-danger" (click)="DeleteReserve(item._id)">Cancel</button>
-                <button class="btn ml-3 btn-success" (click)="UpdateReserve(item._id)">Update</button>
-              </td>
-            </tr>
-          } 
-      </tbody>
-    </table> -->
-
 @if(loading || waiting){
 <h1>loading....</h1>
 }@else{

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../../Services/events.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { SearchComponent } from '../search/search.component';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
@@ -41,7 +40,6 @@ export class HomeComponent implements OnInit {
     this.eventServ.GetEvents().subscribe({
       next:(data)=>{
         this.events=data
-        console.log("data")
       },
       error:()=>{}
     })
@@ -60,7 +58,6 @@ chgInput(){
     this.filteredroom=this.tempArr.filter((room:any)=>{
       return room.type.toLowerCase().startsWith(this.filter.value.searchinput!.toLowerCase())
     })
-    console.log(this.filteredroom);
     
   }else{
     this.filteredroom=[]
