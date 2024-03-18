@@ -36,6 +36,7 @@ export class RegestrationComponent implements OnInit{
     email: new FormControl("",[Validators.required,Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+(\.com){1}$/)]),
     password: new FormControl("",[Validators.required,Validators.minLength(8)]),
     image:new FormControl(""),
+    imageSource:new FormControl("")
   })
 
   login = new FormGroup({
@@ -70,10 +71,17 @@ export class RegestrationComponent implements OnInit{
   appearDiv(){
     this.appear = !this.appear;
   }
-
+  onFileSelected(event:any){
+    if(event.target.files.length > 0){
+      const file = URL.createObjectURL(event.target.files[0]);
+      this.regestration.value.imageSource = file;
+    }
+  }
   signUp(){
     if(this.regestration.valid){
-      let newUser = {...this.regestration.value,isAdmin:false};
+      let {imageSource,...rest} = this.regestration.value
+      
+      let newUser = {...rest,isAdmin:false,image:imageSource};
       this.userService.regestration(newUser).subscribe({
         next:(res)=>{
           this.res = res
@@ -98,7 +106,6 @@ export class RegestrationComponent implements OnInit{
             }
             else{
               this.router.navigateByUrl('home')
-
             }
           }else{
             alert("Wrong email or password")

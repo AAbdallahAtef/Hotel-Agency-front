@@ -21,20 +21,8 @@ import { UserService } from '../../Services/user.service';
 export class UpdateDeleteComponent implements OnInit {
   ID: any;
   roomObj: any;
-  // roomObj: any = {
-  //   // basePrice: 0,
-  //   // description: "",
-  //   // extraPerson: 0,
-  //   // image: "",
-  //   // maximumOccupancy: 0,
-  //   // rating: 0,
-  //   // services: ['', '', ''],
-  //   // standardOccupancy: 0,
-  //   // type: "",
-  //   // quantity: 0,
-  //   // branchId:0,
-  //   // _id: 0
-  // };
+  imageSource:any;
+  
   constructor(myActivated: ActivatedRoute, private roomsServ: RoomsService, private router: Router,private userService:UserService) {
     this.ID= myActivated.snapshot.params['id'];
   }
@@ -85,28 +73,21 @@ export class UpdateDeleteComponent implements OnInit {
     alert("Deleted Successfully");
     this.router.navigate(['/roomsadmin']);
   }
-  UpdateRoom(type:any, standardOccupancy:any, maximumOccupancy:any, image:any,basePrice:any,extraPerson:any,services:any,description:any,rating:any, quantity:any, branchId:any) {
-    let newRoom = {type, standardOccupancy, maximumOccupancy, image, basePrice, extraPerson, services, description, rating, quantity, branchId};
+  onFileSelected(event:any){
+    if(event.target.files.length > 0){
+      const file =  URL.createObjectURL(event.target.files[0]);
+      this.imageSource = file;
+    }
+  }
+  
+  UpdateRoom(type:any, standardOccupancy:any, maximumOccupancy:any,basePrice:any,extraPerson:any,services:any,description:any,quantity:any, branchId:any) {
+    let newRoom = {type, standardOccupancy, maximumOccupancy, image:this.imageSource, basePrice, extraPerson, services, description, quantity, branchId};
     
     //convert services from string to array 
     const split_services = newRoom.services.split(",");
     newRoom.services = split_services
 
-    // const  IntStandardOccupancy = parseInt(newRoom.standardOccupancy)
-    //  newRoom.standardOccupancy= IntStandardOccupancy
 
-    //  const  IntBasePrice = parseInt(newRoom.basePrice)
-    //  newRoom.basePrice= IntBasePrice
-
-     
-    //  const  IntExtraPerson = parseInt(newRoom.extraPerson)
-    //  newRoom.extraPerson= IntExtraPerson
-
-    //  const  IntMaximumOccupancy = parseInt(newRoom.maximumOccupancy)
-    //  newRoom.maximumOccupancy= IntMaximumOccupancy
-
-    //  const  IntRating = parseInt(newRoom.rating)
-    //  newRoom.rating= IntRating
 
     console.log("My Console");
     this.roomsServ.updateRoom(this.ID, newRoom).subscribe({

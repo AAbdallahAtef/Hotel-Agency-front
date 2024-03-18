@@ -5,11 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../Services/user.service';
+import { StarRatingComponent } from '../star-rating/star-rating.component';
 
 @Component({
   selector: 'app-roomdetails',
   standalone: true,
-  imports: [HttpClientModule,RouterModule,FontAwesomeModule,ReactiveFormsModule],
+  imports: [HttpClientModule,RouterModule,FontAwesomeModule,ReactiveFormsModule , StarRatingComponent],
   providers:[RoomsService,UserService],
   templateUrl:'./roomdetails.component.html',
   styleUrl: './roomdetails.component.css'
@@ -18,6 +19,7 @@ export class RoomdetailsComponent implements OnInit {
 ID:any;
 roomdetails:any;
 Reviews:any;
+rev:any;
 AddedReviews:any={}
 rating:any;
 currentUser:any;
@@ -51,9 +53,13 @@ ReadReviews=new FormGroup({
   this.roomServ.GetRoomByID(this.ID).subscribe({
   next:(data)=>{
   this.roomdetails=data
+
   this.roomServ.GetReviewsByID(this.ID).subscribe({
   next:(data)=>{
     this.Reviews=data
+    this.rev=data
+    console.log(this.rev);
+    
     console.log(this.Reviews)
   }
 
@@ -64,11 +70,13 @@ ReadReviews=new FormGroup({
     })
   }
   AddReviews(){
-    this.AddedReviews={...this.ReadReviews.value,roomId:+this.ID}
+    this.AddedReviews={...this.ReadReviews.value,roomId:+this.ID,imageUrl:this.currentUser.image, date:new Date().toJSON().slice(0, 10)}
     this.roomServ.AddReviews(this.AddedReviews).subscribe({
       next:(data)=>{
       this.rating=data
+      this.rev=data
       this.Reviews.push(this.rating.data)
+      alert("your review is added sucessfully")
       }
     })
     } 

@@ -9,11 +9,11 @@
             </div>
           </div>
          
-          <div class="row mb-2 ">
+          <div class="row mb-2 " >
             @if(Reviews){
                 @for(Rev of Reviews ; track Rev.id){
-            <div class="col-md-6 " >
-              <div class="card flex-md-row mb-4 h-md-250 h-100" style="background-color: #76A1A7;">
+            <div class="col-md-6 g-5 " id="divRev" >
+              <div class="card flex-md-row mb-4  h-md-250  h-100 " style="background-color: #76A1A7;">
                 <div class="card-body d-flex flex-column align-items-start ">
                   <h3 class="mb-0">
                     <img class="avatar avatar-xxl rounded-circle" style="height:5rem ;width:5rem"  data-src={{Rev.imageUrl}} alt="Card image cap">
@@ -22,12 +22,7 @@
                   </h3>
                   <div class="mb-1" style="color: #EDE1CF;"> {{Rev.date}}  </div>
                   <p class="card-text mb-auto" style="color: #107980;"> {{Rev.text}} </p>
-                  <span style="color:gold;">Reviews:
-                    <i class="bi bi-star-fill " style="color: rgb(228, 201, 45);"></i>
-                    <i class="bi bi-star-fill "  style="color: rgb(228, 201, 45);"></i>
-                    <i class="bi bi-star-fill "  style="color: rgb(228, 201, 45);"></i>
-                    <i class="bi bi-star-fill "  style="color: rgb(228, 201, 45);"></i>
-                </span>
+                <app-star-rating [(value)]="Rev.rating"></app-star-rating>
                 </div>
                
               </div>
@@ -80,9 +75,6 @@
 </div>
 
 </div>
-
-
-
 
 
 
@@ -197,7 +189,7 @@
           <form class="container py-5" [formGroup]="ReadReviews" >
             <div class="row d-flex justify-content-center">
               <div class="col-md-8 col-lg-12 col-xl-12">
-                <div class="card rounded-3 shadow" style="background-color: #76A1A7;">
+                <div class="card rounded-3 shadow" style="background-color: #76A1A7;" >
                   <div class="card-body  my-2 mx-auto w-75">
                     <div class="d-flex align-items-center" >
                       <div>
@@ -209,10 +201,10 @@
                         </p>
                       </div>         
                     </div>
-                    <div class=" text-center">
-                        <input type="date" class="form-control mb-3 " placeholder="date"  formControlName="date">
-                        <input type="number" class="form-control mb-3 " formControlName="rating" name="rating" placeholder="rating">
-                        <input type="text" name="image" placeholder="imageUrl" formControlName="imageUrl" class="form-control mb-3 " >
+                    <div class=" text-center " >
+                        <!-- <input type="date" class="form-control mb-3 " placeholder="date"  formControlName="date"> -->
+
+                        <input type="number"#rating value="" class="form-control mb-3 " formControlName="rating" name="rating"  placeholder="rating">
                         <textarea type="text" class="form-control mb-3 " placeholder="your review" formControlName="text" ></textarea>
 
                           <div class="d-flex flex-column">

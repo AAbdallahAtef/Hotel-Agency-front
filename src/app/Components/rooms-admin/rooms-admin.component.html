@@ -92,10 +92,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <!-- <div class="col-6">
                             <label for="">Rating</label>
                             <input #rating type="text"  name='rating' class="form-control" [(ngModel)]="roomObj.rating" />
-                        </div>
+                        </div> -->
                         <!-- <div class="col-6">
                             <label for="">Maximum Occupancy</label>
                             <input #maximumOccupancy type="text" class="form-control" [(ngModel)]="roomObj.maximumOccupancy" />
@@ -108,7 +108,7 @@
                         </div>
                         <div class="col-6">
                             <label for="">Image Url:</label><br />
-                            <input #image type="url" name="image" class="form-control" [(ngModel)]="roomObj.image" />
+                            <input #image type="file" accept="image/*" name="image" (change)="onFileSelected($event)" class="form-control" [(ngModel)]="roomObj.image" />
                         </div>
                     </div>
                     <div class="row">
@@ -144,7 +144,7 @@
                         <div class="col-6">
                             <button class="btn"
                             style="background-color:#107980;color: #ffff;"
-                                (click)="addRoom(type.value,standardOccupancy.value,maximumOccupancy.value,image.value,basePrice.value,extraPerson.value,description.value,services.value,rating.value,quantity.value,branchId.value)">Create
+                                (click)="addRoom(type.value,standardOccupancy.value,maximumOccupancy.value,basePrice.value,extraPerson.value,description.value,services.value,quantity.value,branchId.value)">Create
                                 Room</button>
                         </div>
                     </div>

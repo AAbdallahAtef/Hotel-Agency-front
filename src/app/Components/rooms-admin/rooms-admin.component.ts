@@ -26,6 +26,7 @@ export class RoomsAdminComponent implements OnInit {
   Rooms: any = [];
   ID: any;
   addedRoom:any={};
+  imageSource:any;
   roomObj: any = {
     basePrice: "",
     description: "",
@@ -79,27 +80,16 @@ export class RoomsAdminComponent implements OnInit {
   closeSidePanel() {
     this.isSidePanelVisible = false;
   }
-  // removeRoom(id: any) {
-  //   if (!window.confirm('Are you sure to delete ')) return;
-  //   this.roomsServ.deleteRoom(id).subscribe({
-  //     next: () => {
-  //       const index = this.Rooms.findIndex((item: any) => item.id === id);
-  //       this.Rooms.splice(index, 1);
-  //     },
-  //     error: err => alert("Error deleting the room")
-  //   })
-    // this.roomsServ.deleteRoom(room).subscribe({
-    //   next: () => {
-    //     let index = this.Rooms.indexOf(room);
-    //     this.Rooms.splice(index, 1);
-    //   },
-    //   error: err => alert("Error deleting the room")
-    // });
-  // }
+  onFileSelected(event:any){
+    if(event.target.files.length > 0){
+      const file =  URL.createObjectURL(event.target.files[0]);
+      this.imageSource = file;
+    }
+  }
 
 
-  addRoom(type: any, standardOccupancy: any, maximumOccupancy: any, image: any, basePrice: any, extraPerson: any, description: any,services:any,rating:any,quantity:any,branchId:any) {
-    let newRoom = { type, standardOccupancy, maximumOccupancy, image, basePrice, extraPerson, description, services, rating, quantity, branchId };
+  addRoom(type: any, standardOccupancy: any, maximumOccupancy: any, basePrice: any, extraPerson: any,description: any,services:any,quantity:any,branchId:any) {
+    let newRoom = { type, standardOccupancy, maximumOccupancy, image:this.imageSource, basePrice, extraPerson,rating:5, description, services, quantity, branchId };
      newRoom.services = services.split(",");
     console.log(newRoom.services);
     this.roomsServ.addRoom(newRoom).subscribe({
@@ -108,10 +98,7 @@ export class RoomsAdminComponent implements OnInit {
         this.Rooms.push(this.addedRoom.data)
       }
     });
-    // this.roomsServ.addRoom({
-    //   type: 'Newwwww', standardOccupancy: 1, maximumOccupancy: 3, image: 'https://www.istockphoto.com/photo/hotel-room-suite-with-view-gm627892060-111293677?utm_campaign=srp_photos_top&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Frooms&utm_medium=affiliate&utm_source=unsplash&utm_term=rooms%3A%3A%3A',
-    //   basePrice:200,extraPerson:1,services:['Wi Fi'],description:'gffhfghgjnhgmjh',rating:4,quantity:2,branchId:1
-    // }).subscribe();
+
     alert('Added Successfully');
   }
 
